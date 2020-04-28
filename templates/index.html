@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- fonts from google -->
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Tamma+2&display=swap" rel="stylesheet">
+    <!-- icons from font-awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>To-Do List</title>
+</head>
+<body>
+    <header>
+        <h1>To-Do List</h1>
+    </header>
+    <form action="/addItem/" method="POST">{% csrf_token %}
+        <input type="text" class="to-do-input" name="item">
+        <button type="submit" class="to-do-button">
+            <i class="fas fa-plus"></i>
+        </button>
+    </form>
+    <div class="to-do-container">
+        <ul class="to-do-list">
+            {% for to_do_item in all_items %}
+                <div class="to-do">
+                    <li class="to-do-item">
+                        {{ to_do_item.item }}
+                    </li>
+                    <form action="/chekedItem/" method="POST" class="checked-form">{% csrf_token %}
+                        <button class="complete-button">
+                            <i class="fas fa-check"></i>
+                        </button>
+                    </form>
+                    <form action="/deleteItem/{{to_do_item.id}}/" method="POST" class="delete-form">{% csrf_token %}
+                        <button class="delete-button" type="submit">
+                            <i class="far fa-trash-alt"></i>
+                        </button>
+                    </form>
+                </div>
+            {% endfor %}
+        </ul>
+    </div>
+    <script src="./main.js"></script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+/* remove default styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: linear-gradient(120deg,#aef5ff,#60a8c4);
+    color: rgb(59, 59, 59);
+    font-family: "Baloo Tamma 2",sans-serif;
+    min-height: 100vh;
+}
+
+header{
+    font-size: 2rem;
+}
+
+header ,form{
+    min-height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form input, form button {
+    padding: 0.5rem;
+    font-size: 2rem;
+    border: none;
+    background: aliceblue;
+}
+
+form button {
+    color: #4ca0c2;
+    background: aliceblue;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+form button:hover {
+    background: #4ca0c2;
+    color: aliceblue;
+}
+
+.to-do-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.to-do-list {
+    min-width: 30%;
+    list-style: none;
+}
+
+.to-do {
+    margin: 0.5rem;
+    background: aliceblue;
+    color: black;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.to-do li {
+    flex: 1;
+}
+
+.delete-button, .complete-button {
+    background: aliceblue;
+    border: none;
+    padding: 1rem;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.complete-button {
+    color: rgb(80, 255, 80);
+    transition: all 0.3s ease;
+}
+
+.complete-button:hover {
+    background:rgb(80, 255, 80);
+    color: aliceblue;
+}
+
+.delete-button {
+    color: rgb(255, 72, 72);
+    transition: all 0.3s ease;
+}
+
+.delete-button:hover {
+    background:rgb(255, 72, 72);
+    color: aliceblue;
+}
+
+.to-do-item {
+    padding: 0rem 0.5rem;
+}
+
+.fa-check, .fa-trash-alt {
+    pointer-events: none;
+}
+
+.completed {
+    text-decoration: line-through;
+    opacity: 0.5;
+}
+
+.delete-form , .checked-form{
+    min-height: 5vh;
+}
